@@ -4,7 +4,6 @@
  */
 package com.mycompany.crystal;
 import BD.Connector;
-import com.mysql.cj.xdevapi.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -173,7 +172,7 @@ public class login extends javax.swing.JFrame {
         if(res.next()){           
             JOptionPane.showConfirmDialog(this, "Parametre correct !", "Success", 2); 
             this.setVisible(false);
-            new main_menu().setVisible(true);
+            new Main_menu().setVisible(true);
         }else{
             JOptionPane.showConfirmDialog(this, "username ou mot de passe incorrect", "Echec", 2);
         }

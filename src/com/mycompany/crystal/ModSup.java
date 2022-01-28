@@ -372,7 +372,7 @@ public class ModSup extends javax.swing.JFrame {
                 horaire.setText(res.getString("HORAIRE"));                
             }
         } catch (SQLException ex) {
-            Logger.getLogger(main_menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main_menu.class.getName()).log(Level.SEVERE, null, ex);
         }
        
         // TODO add your handling code here:

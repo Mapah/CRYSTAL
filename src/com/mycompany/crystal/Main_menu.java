@@ -4,7 +4,6 @@
  */
 package com.mycompany.crystal;
 import BD.Connector;
-import com.mysql.cj.xdevapi.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,12 +17,12 @@ import javax.swing.JOptionPane;
  *
  * @author Pc
  */
-public class main_menu extends javax.swing.JFrame {
+public class Main_menu extends javax.swing.JFrame {
 
     /**
      * Creates new form main_menu
      */
-    public main_menu() throws SQLException {
+    public Main_menu() throws SQLException {
         initComponents();
     }
 
@@ -213,7 +212,7 @@ public class main_menu extends javax.swing.JFrame {
         try {
             new LISTE_DES_CLIENTS().setVisible(true);
         } catch (SQLException ex) {
-            Logger.getLogger(main_menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main_menu.class.getName()).log(Level.SEVERE, null, ex);
         }
               // TODO add your handling code here:
     }//GEN-LAST:event_listeClientActionPerformed
@@ -225,7 +224,7 @@ public class main_menu extends javax.swing.JFrame {
             this.setVisible(false);
             new ModSup().setVisible(true);
         } catch (SQLException ex) {
-            Logger.getLogger(main_menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main_menu.class.getName()).log(Level.SEVERE, null, ex);
         }    
         
     
@@ -238,7 +237,7 @@ public class main_menu extends javax.swing.JFrame {
             new PAIEMENTS().setVisible(true);
             // TODO add your handling code here:
         } catch (SQLException ex) {
-            Logger.getLogger(main_menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main_menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_paiementsActionPerformed
 
@@ -279,9 +278,9 @@ public class main_menu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new main_menu().setVisible(true);
+                    new Main_menu().setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(main_menu.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Main_menu.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
