@@ -335,17 +335,47 @@ public class ModSup extends javax.swing.JFrame {
     }
     
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
       
-
+        Connection con = Connector.connector();
+        ResultSet res = null;        
+        PreparedStatement pre = null;
+        int date = Date.valueOf(LocalDate.MAX).getDay();
+        
+        String sql = "UPDATE customer SET "
+                + "NOM='"+   nom.getText() +"', "
+                + "TELLEPHONE='"+ date +"', "
+                + "AGE='"+   age.getText() +"', "
+                + "SEX='"+   sexe.getText() +"', "
+                + "MONTENT_MENSUEL='"+   montant.getText() +"', "
+                + "HORAIRE='"+   horaire.getText() +"' "
+                + " WHERE id = '"+   this.id +"';";
+        
+        System.out.println(sql);
+        try{
+            pre=con.prepareStatement(sql);
+            pre.executeUpdate();
+            
+            this.fielTable();
+            
+        }catch(Exception e){
+               JOptionPane.showMessageDialog(null,e.getMessage(),"Error",2); 
+        }
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        
+        nom.setText("");                                     
+        age.setText("");                                     
+        sexe.setText("");                                     
+        montant.setText("");                                     
+        horaire.setText("");                                    
+        tel.setText("");
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
 
-    private void CTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CTableMouseClicked
+    private void CTableMouseClicked(java.awt.event.MouseEvent evt) {
         
         Connection con = Connector.connector();
         
@@ -376,15 +406,43 @@ public class ModSup extends javax.swing.JFrame {
         }
        
         // TODO add your handling code here:
-    }//GEN-LAST:event_CTableMouseClicked
+    }
 
-    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {
+        
+        
+        String sql = "DELETE FROM customer WHERE id = "+this.id+" ;";
+        
+        System.out.println(sql);
+        
+        Connection con = Connector.connector();
+        ResultSet res = null;        
+        PreparedStatement pre = null;
+        
+        try {
+            pre=con.prepareStatement(sql);
+            pre.executeUpdate();
+            this.fielTable();
+                    
+        } catch (SQLException ex) {
+            Logger.getLogger(main_menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
  
-    }//GEN-LAST:event_deleteActionPerformed
+    }
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+        
+        
+        this.setVisible(false);
+        try {
+            new main_menu().setVisible(true);
+            
+            // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(ModSup.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }
 
     /**
      * @param args the command line arguments
